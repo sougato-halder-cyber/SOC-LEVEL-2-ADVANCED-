@@ -1,0 +1,271 @@
+2026-05-02 15:55:16,026 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.101:5000
+2026-05-02 15:55:16,027 [INFO] [33mPress CTRL+C to quit[0m
+2026-05-02 15:55:21,542 [INFO] 127.0.0.1 - - [02/May/2026 15:55:21] "GET / HTTP/1.1" 200 -
+2026-05-02 15:55:22,445 [INFO] 127.0.0.1 - - [02/May/2026 15:55:22] "GET / HTTP/1.1" 200 -
+2026-05-02 15:55:27,026 [INFO] 127.0.0.1 - - [02/May/2026 15:55:27] "GET /socket.io/?EIO=4&transport=polling&t=PteEBvC HTTP/1.1" 200 -
+2026-05-02 15:55:27,128 [INFO] Client connected
+2026-05-02 15:55:27,195 [INFO] 127.0.0.1 - - [02/May/2026 15:55:27] "GET /socket.io/?EIO=4&transport=polling&t=PteEC8w&sid=SZode-AhGZ44bB4sAAAA HTTP/1.1" 200 -
+2026-05-02 15:55:27,501 [INFO] 127.0.0.1 - - [02/May/2026 15:55:27] "GET /socket.io/?EIO=4&transport=polling&t=PteECEz HTTP/1.1" 200 -
+2026-05-02 15:55:27,668 [INFO] Client connected
+2026-05-02 15:55:27,687 [INFO] 127.0.0.1 - - [02/May/2026 15:55:27] "GET /socket.io/?EIO=4&transport=polling&t=PteECHm&sid=S3oR-QNf3pscP2jHAAAC HTTP/1.1" 200 -
+2026-05-02 15:55:27,712 [INFO] 127.0.0.1 - - [02/May/2026 15:55:27] "GET /socket.io/?EIO=4&transport=polling&t=PteECIP&sid=S3oR-QNf3pscP2jHAAAC HTTP/1.1" 200 -
+2026-05-02 15:55:28,161 [INFO] Client connected
+2026-05-02 15:55:28,676 [INFO] Client connected
+2026-05-02 15:55:29,171 [ERROR] message handler error
+Traceback (most recent call last):
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_socketio\__init__.py", line 854, in _handle_event
+    ret = handler(auth)
+TypeError: handle_connect() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\socketio\server.py", line 539, in _handle_connect
+    success = self._trigger_event(
+        'connect', namespace, sid, self.environ[eio_sid])
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\socketio\server.py", line 621, in _trigger_event
+    return handler(*args)
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_socketio\__init__.py", line 306, in _handler
+    return self._handle_event(handler, message, real_ns, sid,
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                              *args)
+                              ^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_socketio\__init__.py", line 856, in _handle_event
+    ret = handler()
+  File "C:\Users\sougato1234\Downloads\SOC_L2_Advanced_FullBuild\soc_advanced.py", line 433, in handle_connect
+    emit('ad_info', ad_simulation)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_socketio\__init__.py", line 933, in emit
+    return socketio.emit(event, *args, namespace=namespace, to=to,
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                         include_self=include_self, skip_sid=skip_sid,
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                         callback=callback, ignore_queue=ignore_queue)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_socketio\__init__.py", line 486, in emit
+    self.server.emit(event, *args, namespace=namespace, to=to,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     skip_sid=skip_sid, callback=callback, **kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\socketio\server.py", line 167, in emit
+    self.manager.emit(event, data, namespace, room=room,
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                      skip_sid=skip_sid, callback=callback,
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                      ignore_queue=ignore_queue)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\socketio\manager.py", line 44, in emit
+    encoded_packet = pkt.encode()
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\socketio\packet.py", line 64, in encode
+    encoded_packet += self.json.dumps(data, separators=(',', ':'))
+                      ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 242, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 202, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 263, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 182, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type deque is not JSON serializable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_socketio\__init__.py", line 854, in _handle_event
+    ret = handler(auth)
+TypeError: handle_connect() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\engineio\server.py", line 451, in run_handler
+    return self.handlers[event](*args)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\socketio\server.py", line 656, in _handle_eio_message
+    self._handle_connect(eio_sid, pkt.namespace, pkt.data)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\socketio\server.py", line 542, in _handle_connect
+    success = self._trigger_event(
+        'connect', namespace, sid, self.environ[eio_sid], None)
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\socketio\server.py", line 621, in _trigger_event
+    return handler(*args)
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_socketio\__init__.py", line 306, in _handler
+    return self._handle_event(handler, message, real_ns, sid,
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                              *args)
+                              ^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_socketio\__init__.py", line 856, in _handle_event
+    ret = handler()
+  File "C:\Users\sougato1234\Downloads\SOC_L2_Advanced_FullBuild\soc_advanced.py", line 433, in handle_connect
+    emit('ad_info', ad_simulation)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_socketio\__init__.py", line 933, in emit
+    return socketio.emit(event, *args, namespace=namespace, to=to,
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                         include_self=include_self, skip_sid=skip_sid,
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                         callback=callback, ignore_queue=ignore_queue)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_socketio\__init__.py", line 486, in emit
+    self.server.emit(event, *args, namespace=namespace, to=to,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     skip_sid=skip_sid, callback=callback, **kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\socketio\server.py", line 167, in emit
+    self.manager.emit(event, data, namespace, room=room,
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                      skip_sid=skip_sid, callback=callback,
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                      ignore_queue=ignore_queue)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\socketio\manager.py", line 44, in emit
+    encoded_packet = pkt.encode()
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\socketio\packet.py", line 64, in encode
+    encoded_packet += self.json.dumps(data, separators=(',', ':'))
+                      ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 242, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 202, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 263, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 182, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type deque is not JSON serializable
+2026-05-02 15:55:29,228 [INFO] 127.0.0.1 - - [02/May/2026 15:55:29] "POST /socket.io/?EIO=4&transport=polling&t=PteEC8u&sid=SZode-AhGZ44bB4sAAAA HTTP/1.1" 200 -
+2026-05-02 15:55:29,693 [ERROR] message handler error
+Traceback (most recent call last):
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_socketio\__init__.py", line 854, in _handle_event
+    ret = handler(auth)
+TypeError: handle_connect() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\socketio\server.py", line 539, in _handle_connect
+    success = self._trigger_event(
+        'connect', namespace, sid, self.environ[eio_sid])
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\socketio\server.py", line 621, in _trigger_event
+    return handler(*args)
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_socketio\__init__.py", line 306, in _handler
+    return self._handle_event(handler, message, real_ns, sid,
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                              *args)
+                              ^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_socketio\__init__.py", line 856, in _handle_event
+    ret = handler()
+  File "C:\Users\sougato1234\Downloads\SOC_L2_Advanced_FullBuild\soc_advanced.py", line 433, in handle_connect
+    emit('ad_info', ad_simulation)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_socketio\__init__.py", line 933, in emit
+    return socketio.emit(event, *args, namespace=namespace, to=to,
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                         include_self=include_self, skip_sid=skip_sid,
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                         callback=callback, ignore_queue=ignore_queue)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_socketio\__init__.py", line 486, in emit
+    self.server.emit(event, *args, namespace=namespace, to=to,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     skip_sid=skip_sid, callback=callback, **kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\socketio\server.py", line 167, in emit
+    self.manager.emit(event, data, namespace, room=room,
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                      skip_sid=skip_sid, callback=callback,
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                      ignore_queue=ignore_queue)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\socketio\manager.py", line 44, in emit
+    encoded_packet = pkt.encode()
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\socketio\packet.py", line 64, in encode
+    encoded_packet += self.json.dumps(data, separators=(',', ':'))
+                      ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 242, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 202, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 263, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 182, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type deque is not JSON serializable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_socketio\__init__.py", line 854, in _handle_event
+    ret = handler(auth)
+TypeError: handle_connect() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\engineio\server.py", line 451, in run_handler
+    return self.handlers[event](*args)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\socketio\server.py", line 656, in _handle_eio_message
+    self._handle_connect(eio_sid, pkt.namespace, pkt.data)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\socketio\server.py", line 542, in _handle_connect
+    success = self._trigger_event(
+        'connect', namespace, sid, self.environ[eio_sid], None)
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\socketio\server.py", line 621, in _trigger_event
+    return handler(*args)
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_socketio\__init__.py", line 306, in _handler
+    return self._handle_event(handler, message, real_ns, sid,
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                              *args)
+                              ^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_socketio\__init__.py", line 856, in _handle_event
+    ret = handler()
+  File "C:\Users\sougato1234\Downloads\SOC_L2_Advanced_FullBuild\soc_advanced.py", line 433, in handle_connect
+    emit('ad_info', ad_simulation)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_socketio\__init__.py", line 933, in emit
+    return socketio.emit(event, *args, namespace=namespace, to=to,
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                         include_self=include_self, skip_sid=skip_sid,
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                         callback=callback, ignore_queue=ignore_queue)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_socketio\__init__.py", line 486, in emit
+    self.server.emit(event, *args, namespace=namespace, to=to,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     skip_sid=skip_sid, callback=callback, **kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\socketio\server.py", line 167, in emit
+    self.manager.emit(event, data, namespace, room=room,
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                      skip_sid=skip_sid, callback=callback,
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                      ignore_queue=ignore_queue)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\socketio\manager.py", line 44, in emit
+    encoded_packet = pkt.encode()
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\site-packages\socketio\packet.py", line 64, in encode
+    encoded_packet += self.json.dumps(data, separators=(',', ':'))
+                      ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 242, in dumps
+    **kw).encode(obj)
+          ~~~~~~^^^^^
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 202, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 263, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\sougato1234\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py", line 182, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+                    f'is not JSON serializable')
+TypeError: Object of type deque is not JSON serializable
+2026-05-02 15:55:29,730 [INFO] 127.0.0.1 - - [02/May/2026 15:55:29] "POST /socket.io/?EIO=4&transport=polling&t=PteECHl&sid=S3oR-QNf3pscP2jHAAAC HTTP/1.1" 200 -
+2026-05-02 15:55:30,239 [INFO] 127.0.0.1 - - [02/May/2026 15:55:30] "GET /socket.io/?EIO=4&transport=websocket&sid=S3oR-QNf3pscP2jHAAAC HTTP/1.1" 200 -
